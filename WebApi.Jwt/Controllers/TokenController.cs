@@ -11,7 +11,7 @@ namespace WebApi.Jwt.Controllers
         {
             if (CheckUser(username, password))
             {
-                return JwtManager.GenerateToken(username);
+                return new JwtManager().GenerateToken(username);
             }
 
             throw new HttpResponseException(HttpStatusCode.Unauthorized);
