@@ -1,5 +1,5 @@
 ﻿using System.Web.Http;
-using WebApi.Jwt.Filters;
+using JwtManagement.Filters;
 
 namespace WebApi.Jwt.Controllers
 {

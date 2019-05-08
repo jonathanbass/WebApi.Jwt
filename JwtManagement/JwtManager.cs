@@ -7,7 +7,7 @@ using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using StackExchange.Redis;
 
-namespace WebApi.Jwt
+namespace JwtManagement
 {
     public class JwtManager
     {
@@ -29,6 +29,9 @@ namespace WebApi.Jwt
 
             var symmetricSecurityKey = new SymmetricSecurityKey(Convert.FromBase64String(_key));
             var now = DateTime.UtcNow;
+
+            // TODO: Claims data should be got from the UserInfo endpoint of IdentityServer 4
+            // http://docs.identityserver.io/en/latest/endpoints/userinfo.html
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new[]
@@ -70,7 +73,6 @@ namespace WebApi.Jwt
 
                 return principal;
             }
-
             catch (Exception)
             {
                 return null;

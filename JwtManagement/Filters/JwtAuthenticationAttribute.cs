@@ -6,7 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Http.Filters;
 
-namespace WebApi.Jwt.Filters
+namespace JwtManagement.Filters
 {
     public class JwtAuthenticationAttribute : Attribute, IAuthenticationFilter
     {
@@ -19,7 +19,10 @@ namespace WebApi.Jwt.Filters
             var authorization = request.Headers.Authorization;
 
             if (authorization == null || authorization.Scheme != "Bearer")
+            {
+                context.ErrorResult = new AuthenticationFailureResult("Missing Jwt Token", request);
                 return;
+            }
 
             if (string.IsNullOrEmpty(authorization.Parameter))
             {
@@ -36,8 +39,6 @@ namespace WebApi.Jwt.Filters
             else
                 context.Principal = principal;
         }
-
-
 
         private static bool ValidateToken(string token, out string username)
         {
@@ -65,24 +66,20 @@ namespace WebApi.Jwt.Filters
 
         protected Task<IPrincipal> AuthenticateJwtToken(string token)
         {
-            string username;
+            if (!ValidateToken(token, out var username)) return Task.FromResult<IPrincipal>(null);
 
-            if (ValidateToken(token, out username))
+            // based on username to get more information from database in order to build local identity
+            var claims = new List<Claim>
             {
-                // based on username to get more information from database in order to build local identity
-                var claims = new List<Claim>
-                {
-                    new Claim(ClaimTypes.Name, username)
-                    // Add more claims if needed: Roles, ...
-                };
+                new Claim(ClaimTypes.Name, username)
+                // Add more claims if needed: Roles, ...
+            };
 
-                var identity = new ClaimsIdentity(claims, "Jwt");
-                IPrincipal user = new ClaimsPrincipal(identity);
+            var identity = new ClaimsIdentity(claims, "Jwt");
+            IPrincipal user = new ClaimsPrincipal(identity);
 
-                return Task.FromResult(user);
-            }
+            return Task.FromResult(user);
 
-            return Task.FromResult<IPrincipal>(null);
         }
 
         public Task ChallengeAsync(HttpAuthenticationChallengeContext context, CancellationToken cancellationToken)
@@ -96,7 +93,7 @@ namespace WebApi.Jwt.Filters
             string parameter = null;
 
             if (!string.IsNullOrEmpty(Realm))
-                parameter = "realm=\"" + Realm + "\"";
+                parameter = $"realm=\"{Realm}\"";
 
             context.ChallengeWith("Bearer", parameter);
         }
