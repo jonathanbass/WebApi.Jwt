@@ -11,9 +11,10 @@ namespace WebApi.Jwt.Controllers
     public class ClientController : ApiController
     {
         [AllowAnonymous]
-        public async Task<IEnumerable<string>> Get(string username)
+        public async Task<IEnumerable<string>> Get()
         {
-            var token = new JwtManager().GenerateToken(username);
+            var accessToken = Request.Headers.Authorization.Parameter;
+            var token = await new JwtManager().GenerateToken(accessToken);
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri("http://localhost:55385/api/");

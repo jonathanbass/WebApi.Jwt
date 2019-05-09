@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
+using System.Threading.Tasks;
+using IdentityModel.Client;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using StackExchange.Redis;
@@ -23,21 +25,22 @@ namespace JwtManagement
             _key = key;
         }
 
-        public string GenerateToken(string username, int expireMinutes = 20)
+        public async Task<string> GenerateToken(string accessToken, int expireMinutes = 20)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
 
             var symmetricSecurityKey = new SymmetricSecurityKey(Convert.FromBase64String(_key));
             var now = DateTime.UtcNow;
 
-            // TODO: Claims data should be got from the UserInfo endpoint of IdentityServer 4
             // http://docs.identityserver.io/en/latest/endpoints/userinfo.html
+            var userInfoClient = new UserInfoClient("http://localhost:5000/connect/userinfo");
+            var userInfo = await userInfoClient.GetAsync(accessToken);
+
+            var claims = new [] { new Claim(ClaimTypes.Name, userInfo.Claims.First().Value) };
+
             var tokenDescriptor = new SecurityTokenDescriptor
             {
-                Subject = new ClaimsIdentity(new[]
-                        {
-                            new Claim(ClaimTypes.Name, username)
-                        }),
+                Subject = new ClaimsIdentity(claims),
                 Expires = now.AddMinutes(Convert.ToInt32(expireMinutes)),
                 SigningCredentials = new SigningCredentials(symmetricSecurityKey, SecurityAlgorithms.HmacSha256Signature)
             };

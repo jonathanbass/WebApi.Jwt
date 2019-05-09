@@ -59,6 +59,7 @@ namespace JwtManagement.Filters
             if (string.IsNullOrEmpty(username))
                 return false;
 
+            // TODO: Add calls to database and proper Authorisation logic
             // More validate to check whether username exists in system
 
             return true;
