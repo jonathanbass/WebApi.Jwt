@@ -7,6 +7,7 @@ namespace AuthoriseApi.Controllers
     public class ValuesController : ApiController
     {
         // GET api/values
+        [Authorize]
         [JwtAuthentication]
         public IEnumerable<string> Get()
         {
