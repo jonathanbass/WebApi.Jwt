@@ -10,6 +10,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="IdentityModel">
+      <HintPath>..\..\..\..\Users\z0042mwj\.nuget\packages\identitymodel\3.10.0\lib\netstandard2.0\IdentityModel.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Update="Views\Shared\json.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>

@@ -101,7 +101,7 @@ namespace IdentityServer
 
                     ClientSecrets =
                     {
-                        new Secret("secret".Sha256())
+                        new Secret("secret")
                     },
 
                     RedirectUris           = { "http://localhost:5002/signin-oidc" },
@@ -120,7 +120,7 @@ namespace IdentityServer
                 {
                     ClientId = "gateway",
                     ClientName = "Gateway API",
-                    AllowedGrantTypes = GrantTypes.ImplicitAndClientCredentials,
+                    AllowedGrantTypes = GrantTypes.ClientCredentials,
 
                     ClientSecrets =
                     {

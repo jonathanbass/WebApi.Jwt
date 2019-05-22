@@ -1,17 +1,18 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Web.Http;
 using JwtManagement;
-using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using RestSharp;
 
 namespace GatewayApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Microsoft.AspNetCore.Mvc.Route("api/[controller]")]
     [ApiController]
     public class ClientController : ControllerBase
     {
+        [Authorize]
         public async Task<ActionResult<IEnumerable<string>>> Get()
         {
             var accessToken = Request.Headers["Authorization"].First();

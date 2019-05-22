@@ -18,7 +18,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServer", "IdentityS
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MvcClient", "MvcClient\MvcClient.csproj", "{236EF6F9-2543-46CB-9B2B-E6FC8076633E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GatewayApi", "GatewayApi\GatewayApi.csproj", "{9CEAC7BE-DCD8-4C60-872B-F6C25CEDF954}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GatewayApi", "GatewayApi\GatewayApi.csproj", "{9CEAC7BE-DCD8-4C60-872B-F6C25CEDF954}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServer4", "IdentityServer4\IdentityServer4.csproj", "{8B0A4AF6-C26B-4287-92D8-2C33188956DC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -54,6 +56,10 @@ Global
 		{9CEAC7BE-DCD8-4C60-872B-F6C25CEDF954}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9CEAC7BE-DCD8-4C60-872B-F6C25CEDF954}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9CEAC7BE-DCD8-4C60-872B-F6C25CEDF954}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B0A4AF6-C26B-4287-92D8-2C33188956DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B0A4AF6-C26B-4287-92D8-2C33188956DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B0A4AF6-C26B-4287-92D8-2C33188956DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B0A4AF6-C26B-4287-92D8-2C33188956DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

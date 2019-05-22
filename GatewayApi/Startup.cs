@@ -46,7 +46,7 @@ namespace GatewayApi
 
                     options.ClientId = "gateway";
                     options.ClientSecret = "secret";
-                    options.ResponseType = "id_token";
+                    options.ResponseType = "client_credentials";
 
                     options.SaveTokens = true;
                     options.GetClaimsFromUserInfoEndpoint = true;
