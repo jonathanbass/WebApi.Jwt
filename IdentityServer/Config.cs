@@ -101,7 +101,7 @@ namespace IdentityServer
 
                     ClientSecrets =
                     {
-                        new Secret("secret")
+                        new Secret("secret".Sha256())
                     },
 
                     RedirectUris           = { "http://localhost:5002/signin-oidc" },

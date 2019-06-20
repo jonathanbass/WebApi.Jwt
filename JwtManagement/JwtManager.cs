@@ -34,7 +34,7 @@ namespace JwtManagement
 
             // http://docs.identityserver.io/en/latest/endpoints/userinfo.html
             var userInfoClient = new UserInfoClient("http://localhost:5000/connect/userinfo");
-            var userInfo = await userInfoClient.GetAsync(accessToken);
+            var userInfo = await userInfoClient.GetAsync(accessToken.Replace("Bearer ", string.Empty));
 
             var claims = new [] { new Claim(ClaimTypes.Name, userInfo.Claims.First().Value) };
 

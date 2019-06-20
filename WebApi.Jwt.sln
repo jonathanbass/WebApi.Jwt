@@ -8,11 +8,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedisPopulator", "RedisPopulator\RedisPopulator.csproj", "{C3A36B19-3B9E-40E2-BEBC-C08389C6E49C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthoriseApi", "AuthoriseApi\AuthoriseApi.csproj", "{ABC8187E-18EA-4D1D-A53E-0B5840F63D9D}"
-	ProjectSection(ProjectDependencies) = postProject
-		{68005612-AB00-4717-AACE-40A3AC4D55C1} = {68005612-AB00-4717-AACE-40A3AC4D55C1}
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JwtManagement", "JwtManagement\JwtManagement.csproj", "{68005612-AB00-4717-AACE-40A3AC4D55C1}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServer", "IdentityServer\IdentityServer.csproj", "{552AF848-C680-4891-B904-D60925F8C117}"
 EndProject
@@ -21,6 +16,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GatewayApi", "GatewayApi\GatewayApi.csproj", "{9CEAC7BE-DCD8-4C60-872B-F6C25CEDF954}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServer4", "IdentityServer4\IdentityServer4.csproj", "{8B0A4AF6-C26B-4287-92D8-2C33188956DC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JwtManagement", "JwtManagement\JwtManagement.csproj", "{65D5E7F0-58B3-4346-9D22-F4A991512AF6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -40,10 +37,6 @@ Global
 		{ABC8187E-18EA-4D1D-A53E-0B5840F63D9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ABC8187E-18EA-4D1D-A53E-0B5840F63D9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ABC8187E-18EA-4D1D-A53E-0B5840F63D9D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{68005612-AB00-4717-AACE-40A3AC4D55C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{68005612-AB00-4717-AACE-40A3AC4D55C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{68005612-AB00-4717-AACE-40A3AC4D55C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{68005612-AB00-4717-AACE-40A3AC4D55C1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{552AF848-C680-4891-B904-D60925F8C117}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{552AF848-C680-4891-B904-D60925F8C117}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{552AF848-C680-4891-B904-D60925F8C117}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -60,6 +53,10 @@ Global
 		{8B0A4AF6-C26B-4287-92D8-2C33188956DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B0A4AF6-C26B-4287-92D8-2C33188956DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8B0A4AF6-C26B-4287-92D8-2C33188956DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65D5E7F0-58B3-4346-9D22-F4A991512AF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65D5E7F0-58B3-4346-9D22-F4A991512AF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65D5E7F0-58B3-4346-9D22-F4A991512AF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65D5E7F0-58B3-4346-9D22-F4A991512AF6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
